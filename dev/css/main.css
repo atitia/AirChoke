@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    background: darkred;
 }
 
 .header {
@@ -9,4 +10,6 @@ body {
     width: 100%;
     height: 50px;
     background: #151515;
+    -webkit-transition: .2s opacity;
+    transition: .2s opacity;
 }

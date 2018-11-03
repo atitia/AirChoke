@@ -43,6 +43,7 @@ const init = () => {
         dae.updateMatrix();
         scene.add(dae);
 
+
         var box_geo = new THREE.BoxGeometry(5000, 600, 5000);
         var box_mat = new THREE.MeshBasicMaterial({
             color: 0x2786e5,
@@ -90,7 +91,7 @@ const render = () => {
     //speed
     var timer = Date.now() * 0.00001;
     //distance
-    camera.position.x = Math.cos(timer) * 4100;
+    camera.position.x = Math.cos(timer) * 100;
     camera.position.z = Math.sin(timer) * 200;
     camera.lookAt(scene.position);
     //keep displaying scene

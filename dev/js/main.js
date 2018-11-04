@@ -83,6 +83,9 @@ document.onmousedown = (e) => {
     }
 }
 
+function onClick(){
+  
+}
 
 const render = () => {
     //call to render scene 60fps

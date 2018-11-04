@@ -3,7 +3,7 @@ body {
     padding: 0px;
 }
 
-.button__proceed {
+#button {
     position: absolute;
     top: 0;
     left: 0;

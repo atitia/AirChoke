@@ -84,7 +84,7 @@ document.onmousedown = (e) => {
 }
 
 function onClick(){
-  
+
 }
 
 const render = () => {

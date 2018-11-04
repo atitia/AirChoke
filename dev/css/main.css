@@ -3,7 +3,11 @@ body {
     padding: 0px;
 }
 
-bttn {
+<<<<<<< HEAD
+#bttn {
+=======
+.button__proceed {
+>>>>>>> 28b4daa7769e7899f2e35812ff60f6fa2eda84a9
     position: absolute;
     top: 0;
     left: 0;

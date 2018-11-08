@@ -1,6 +1,11 @@
-let scene, camera, renderer, raycaster, controls,
+let scene, camera, renderer, raycaster,
     mouse = new THREE.Vector2(),
-    INTERSECTED;
+    INTERSECTED,
+    slider = document.getElementById('slider'),
+    tween;
+
+//Camera change parameters
+let cameraSpeed = .1;
 
 const init = () => {
     //add detector to see if WebGL is supported
@@ -8,18 +13,17 @@ const init = () => {
     //set up a scene
     scene = new THREE.Scene();
     //add a camera
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
     //render the scene - start renderer and set it's size
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0xcaf8f1, 1);
+    renderer.setClearColor(0x1c456d, 1);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     //add to webpage
     document.body.appendChild(renderer.domElement);
-    controls = new THREE.OrbitControls(camera);
 
     var light = new THREE.DirectionalLight(0xffffff, 0.5);
     light.position.set(1, 1, 1).normalize();
@@ -27,7 +31,7 @@ const init = () => {
 
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
-    loader.load('../../assets/island.dae', (collada) => {
+    loader.load('../../assets/Canada.dae', (collada) => {
         var dae = collada.scene;
 
         dae.traverse(function (child) {
@@ -38,7 +42,6 @@ const init = () => {
             }
 
         });
-
         dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
         dae.updateMatrix();
         scene.add(dae);
@@ -46,7 +49,7 @@ const init = () => {
 
         var box_geo = new THREE.BoxGeometry(5000, 600, 5000);
         var box_mat = new THREE.MeshBasicMaterial({
-            color: 0x2786e5,
+            color: 0x343932,
             transparent: true
         });
         var water = new THREE.Mesh(box_geo, box_mat);
@@ -57,7 +60,8 @@ const init = () => {
     });
 
     //position camera
-    camera.position.set(500, 300, 200);
+    camera.position.set(10, 5, 10);
+    camera.rotation.y = 0.8;
 
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -84,21 +88,47 @@ document.onmousedown = (e) => {
 }
 
 
-function onClick(event) {}
-
 const render = () => {
-    //call to render scene 60fps
+    TWEEN.update();
     requestAnimationFrame(render);
-    camera.lookAt(scene.position);
-    //speed
     var timer = Date.now() * 0.00001;
-    //distance
-    camera.position.x = Math.cos(timer) * 100;
-    camera.position.z = Math.sin(timer) * 200;
-    camera.lookAt(scene.position);
-    //keep displaying scene
     renderer.render(scene, camera);
 }
 
+const changeCamera = () => {
+    let pos1 = new TWEEN.Tween(camera.position).to({
+        x: 2,
+        y: 1,
+        z: 2
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    let pos2 = new TWEEN.Tween(camera.position).to({
+        x: 2,
+        y: 3,
+        z: 2
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    let pos3 = new TWEEN.Tween(camera.position).to({
+        x: 20,
+        y: .5,
+        z: 2
+          }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    let rot1 = new TWEEN.Tween(camera.rotation).to({
+        y: .5,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    let rot2 = new TWEEN.Tween(camera.rotation).to({
+        y: .5,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    let rot3 = new TWEEN.Tween(camera.rotation).to({
+        z: 1,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    if (slider.value == 1) {
+        pos1.start();
+    } else if (slider.value == 2) {
+        pos2.start();
+        rot2.start();
+    } else if(slider.value== 3){
+        pos3.start();
+    }
+}
 //call the init function to run the code
 init();

@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oceans Truth</title>
+    <title>Oceans-Truth</title>
     <link rel="stylesheet" href="dist/css/main.min.css">
+    <link rel="stylesheet" href="dev/css/main.css">
     <script src="lib/three.min.js"></script>
     <script src="lib/Detector.js"></script>
     <script src="lib/ColladaLoader.js"></script>
-    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/tween.min.js"></script>
 </head>
 
 
 <body>
+    <div id="inner">
+    <input id="slider" type="range" min="0" max="10"  value="0" step="1" onclick="changeCamera()">
+     </div>
+    
     <script src="dev/js/main.js"></script>
-    <div id="button">
-        <button onclick="onClick()">proceed</button>
-    </div>
 </body>
-
 </html>

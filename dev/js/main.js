@@ -1,11 +1,11 @@
-let scene, camera, renderer, raycaster,
+var scene, camera, renderer, raycaster,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
     tween;
 
 //Camera change parameters
-let cameraSpeed = .1;
+var cameraSpeed = .1;
 
 const init = () => {
     //add detector to see if WebGL is supported
@@ -31,9 +31,8 @@ const init = () => {
 
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
-    loader.load('../../assets/Canada.dae', (collada) => {
+    loader.load('../../assets/Canada.dae', collada => {
         var dae = collada.scene;
-
         dae.traverse(function (child) {
 
             if (child instanceof THREE.Mesh) {
@@ -45,8 +44,6 @@ const init = () => {
         dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
         dae.updateMatrix();
         scene.add(dae);
-
-
         var box_geo = new THREE.BoxGeometry(5000, 600, 5000);
         var box_mat = new THREE.MeshBasicMaterial({
             color: 0x343932,

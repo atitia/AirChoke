@@ -5,16 +5,31 @@ body {
 
 
 #slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    -moz-appearance: none;
     appearance: none;
-    width: 10%; /* Full-width */
-    height: 30%; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    width: 10%;
+    /* Full-width */
+    height: 30%;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    -webkit-transition: opacity .2s;
     transition: opacity .2s;
 }
+
+#badge {
+    position: absolute;
+
+}
+
 
 /* #inner {
     z-index: 1000;

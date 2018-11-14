@@ -107,7 +107,7 @@ const changeCamera = () => {
         x: 20,
         y: .5,
         z: 2
-          }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
     let rot1 = new TWEEN.Tween(camera.rotation).to({
         y: .5,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
@@ -123,7 +123,7 @@ const changeCamera = () => {
     } else if (slider.value == 2) {
         pos2.start();
         rot2.start();
-    } else if(slider.value== 3){
+    } else if (slider.value == 3) {
         pos3.start();
     }
 }

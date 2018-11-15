@@ -4,10 +4,9 @@ var scene, camera, renderer, raycaster,
     slider = document.getElementById('slider'),
     tween;
 
-//Camera change parameters
 var cameraSpeed = .1;
 
-const init = () => {
+const init = (resolve) => {
     //add detector to see if WebGL is supported
     if (!Detector.webgl) Detector.addGetWebGLMessage();
     //set up a scene
@@ -53,6 +52,7 @@ const init = () => {
         water.position.set(0, -250, 0);
         box_mat.opacity = .7;
         scene.add(water);
+        resolve('resolved');
         render();
     });
 
@@ -62,9 +62,6 @@ const init = () => {
 
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
-
-    //render the scene
-    //render();
 }
 
 const onDocumentMouseMove = event => {
@@ -83,7 +80,6 @@ document.onmousedown = (e) => {
         }
     }
 }
-
 
 const render = () => {
     TWEEN.update();
@@ -127,5 +123,17 @@ const changeCamera = () => {
         pos3.start();
     }
 }
-//call the init function to run the code
-init();
+
+function initThreeJs() {
+    return new Promise(resolve => {
+        init(resolve);
+    });
+}
+
+async function deleteLoading() {
+    var result = await initThreeJs();
+    let preLoad = document.getElementsByClassName('preload')[0];
+    preLoad.style.display = 'none';
+}
+
+deleteLoading();

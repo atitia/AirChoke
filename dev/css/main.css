@@ -8,31 +8,30 @@ body {
     height: 100%;
 }
 
+#inner {
+    position: absolute;
+    top: 50vh;
+    left: -5vw;
+    padding: 10px 20px;
+    background: #292929;
+    border-radius: 2px;
+    -webkit-transform: rotate(90deg) translateX(-50%);
+    transform: rotate(90deg) translateX(-50%);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
 
 #slider {
     -webkit-appearance: none;
-    /* Override default CSS styles */
     -moz-appearance: none;
     appearance: none;
-    width: 10%;
-    /* Full-width */
-    height: 30%;
-    /* Specified height */
-    background: #d3d3d3;
-    /* Grey background */
+    width: 300px;
+    height: 5px;
+    background: #2eb294;
     outline: none;
-    /* Remove outline */
-    opacity: 0.7;
-    /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s;
-    /* 0.2 seconds transition on hover */
     -webkit-transition: opacity .2s;
     transition: opacity .2s;
-}
-
-#badge {
-    position: absolute;
-
 }
 
 * {

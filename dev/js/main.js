@@ -2,8 +2,7 @@ var scene, camera, renderer, raycaster,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
-    tween,
-    positions = {};
+    tween;
 
 var cameraSpeed = .1;
 
@@ -86,31 +85,31 @@ const render = () => {
 }
 
 const changeCamera = () => {
-    positions[0] = new TWEEN.Tween(camera.position).to({
+    let pos1 = new TWEEN.Tween(camera.position).to({
         x: 2,
         y: 1,
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    positions[1] = new TWEEN.Tween(camera.position).to({
+    let pos2 = new TWEEN.Tween(camera.position).to({
         x: 14,
         y: .5,
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    positions[2] = new TWEEN.Tween(camera.position).to({
+    let pos3 = new TWEEN.Tween(camera.position).to({
         x: 2,
         y: 3,
         z: -5
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    positions[3] = new TWEEN.Tween(camera.position).to({
+    let pos4 = new TWEEN.Tween(camera.position).to({
         x: 12,
         y: 6,
         z: 3
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    positions[4] = new TWEEN.Tween(camera.position).to({
+    let pos5 = new TWEEN.Tween(camera.position).to({
         x: 2,
         y: 4,
         z: 5
@@ -136,12 +135,7 @@ const changeCamera = () => {
         y: -1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    //    slider.value == 1 ? pos1.start() : slider.value == 2 ? (pos2.start(), rot2.start()) : slider.value == 3 ? pos3.start() : slider.value == 4 ? pos4.start() : slider.value == 5 ? pos5.start() : 0;
-    moveCameraTo(slider.value);
-}
-
-const moveCameraTo = value => {
-    positions[value]();
+    slider.value == 1 ? pos1.start() : slider.value == 2 ? (pos2.start(), rot2.start()) : slider.value == 3 ? pos3.start() : slider.value == 4 ? pos4.start() : slider.value == 5 ? pos5.start() : 0;
 }
 
 function initThreeJs() {

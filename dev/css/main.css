@@ -121,6 +121,17 @@ body {
     animation: anticlockwisespin 2s linear 3;
 }
 
+.texts {
+    position: absolute;
+    right: 50px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+
+}
+
 @-webkit-keyframes clockwisespin {
     from {
         -webkit-transform: rotate(0deg);

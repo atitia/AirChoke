@@ -135,7 +135,19 @@ const changeCamera = () => {
         y: -1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    slider.value == 1 ? pos1.start() : slider.value == 2 ? (pos2.start(), rot2.start()) : slider.value == 3 ? pos3.start() : slider.value == 4 ? pos4.start() : slider.value == 5 ? pos5.start() : 0;
+    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? pos5.start() : 0;
+}
+
+//dynamic functions
+const switchTo = (off, on) => {
+    //Hiding all
+    let allTargets = document.getElementsByClassName(off);
+    for (let i = 0; i < allTargets.length; i++) {
+        allTargets[i].style.display = 'none';
+    }
+    //Showing dynamic
+    let target = document.getElementsByClassName(on)[0];
+    target.style.display = 'block';
 }
 
 function initThreeJs() {
@@ -149,5 +161,7 @@ async function deleteLoading() {
     let preLoad = document.getElementsByClassName('preload')[0];
     preLoad.style.display = 'none';
 }
+
+let God = new DCSS()
 
 deleteLoading();

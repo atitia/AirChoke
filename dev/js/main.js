@@ -30,15 +30,13 @@ const init = (resolve) => {
 
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
-    loader.load('../../assets/Canada.dae', collada => {
+    loader.load('/assets/Canada.dae', collada => {
         var dae = collada.scene;
         dae.traverse(function (child) {
-
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
-
         });
         dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
         dae.updateMatrix();
@@ -55,11 +53,9 @@ const init = (resolve) => {
         resolve('resolved');
         render();
     });
-
     //position camera
     camera.position.set(10, 5, 10);
     camera.rotation.y = 0.8;
-
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
 }
@@ -70,7 +66,7 @@ const onDocumentMouseMove = event => {
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }
 
-document.onmousedown = (e) => {
+document.onmousedown = e => {
     raycaster.setFromCamera(mouse, camera);
     var intersects = raycaster.intersectObjects(scene.children, true);
     if (intersects.length > 0) {
@@ -94,25 +90,56 @@ const changeCamera = () => {
         y: 1,
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
     let pos2 = new TWEEN.Tween(camera.position).to({
-        x: 2,
-        y: 3,
-        z: 2
-    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
-    let pos3 = new TWEEN.Tween(camera.position).to({
-        x: 20,
+        x: 14,
         y: .5,
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let pos3 = new TWEEN.Tween(camera.position).to({
+        x: 2,
+        y: 3,
+        z: -5
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let pos4 = new TWEEN.Tween(camera.position).to({
+        x: 12,
+        y: 6,
+        z: 3
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let pos5 = new TWEEN.Tween(camera.position).to({
+        x: 2,
+        y: 4,
+        z: 5
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
     let rot1 = new TWEEN.Tween(camera.rotation).to({
         y: .5,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
     let rot2 = new TWEEN.Tween(camera.rotation).to({
-        y: .5,
+        y: -1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
     let rot3 = new TWEEN.Tween(camera.rotation).to({
         z: 1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let rot4 = new TWEEN.Tween(camera.rotation).to({
+        y: -1,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let rot5 = new TWEEN.Tween(camera.rotation).to({
+        y: -1,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+
+
+
+
+
 
     if (slider.value == 1) {
         pos1.start();

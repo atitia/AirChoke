@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Air Choke</title>
+    <link rel="shortcut icon" href="Logo2.png" type="image/Logo">
     <link rel="stylesheet" href="dev/css/main.css">
     <script src="lib/three.min.js"></script>
     <script src="lib/Detector.js"></script>
@@ -14,12 +15,16 @@
 
 
 <body>
-    <div id="inner">
+    <div id="Back">
         <input id="slider" type="range" min="0" max="10" value="0" step="1" onclick="changeCamera()" orient="vertical">
     </div>
 
+    <div class="Backtext">
+        <p>Levels of atmospheric <br>carbon dioxide(C02)</p>
+    </div>
+
     <div class="preload">
-        <div class="Logo">
+        <div class="Name">
             Air-<span style="color: aqua">Choke</span>
         </div>
         <div class="loader-frame">
@@ -27,7 +32,7 @@
             <div class="loader" id="loader2"></div>
         </div>
     </div>
-    <script src=" dev/js/main.js">
+    <script src="dev/js/main.js">
     </script>
 </body>
 

@@ -123,13 +123,112 @@ body {
 
 .texts {
     position: absolute;
-    right: 50px;
+    right: 0px;
     top: 50vh;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
     display: none;
+    background: darkturquoise;
+}
 
+.text1 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
+}
+
+.text2 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: #333;
+}
+
+.text3 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
+}
+
+.text4 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: #333;
+}
+
+.text5 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
+}
+
+.text6 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: #333;
+}
+
+.text7 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
+}
+
+.text8 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: #333;
+}
+
+.text9 {
+    position: absolute;
+    right: 0px;
+    top: 50vh;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
 }
 
 @-webkit-keyframes clockwisespin {

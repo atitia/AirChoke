@@ -2,7 +2,8 @@ var scene, camera, renderer, raycaster,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
-    tween;
+    tween, object, dae, car, material, timer, cloud, sprite;
+var textureLoader = new THREE.TextureLoader();
 
 var cameraSpeed = .1;
 
@@ -24,27 +25,56 @@ const init = (resolve) => {
     //add to webpage
     document.body.appendChild(renderer.domElement);
 
-    var light = new THREE.DirectionalLight(0xffffff, 0.5);
-    light.position.set(1, 1, 1).normalize();
-    scene.add(light);
+    /*var light = new THREE.AmbientLight(0xffffff, 0.5);
+    light.position.set(20, 80, 50).normalize();
+    light.target.position.set(0, 0, 0);
+    scene.add(light);*/
+
+    group = new THREE.Group();
+
+    cloud = textureLoader.load("cloud.png");
+    material = new THREE.SpriteMaterial({
+        map: cloud,
+        color: 0xffffff,
+        fog: true
+    });
+
+    for (i = 0; i < 100; i++) {
+        var x = 300 * Math.random() - 150;
+        var y = (10 * Math.random()) + 90;
+        var z = 300 * Math.random() - 150;
+
+        sprite = new THREE.Sprite(material);
+        sprite.position.set(x, y, z);
+        sprite.scale.x = sprite.scale.y = sprite.scale.z = 20;
+        group.add(sprite);
+
+    }
+    scene.add(group);
 
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
     loader.load('/assets/Canada.dae', collada => {
-        var dae = collada.scene;
+        dae = collada.scene;
         dae.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
         });
-        dae.scale.x = dae.scale.y = dae.scale.z = 0.5;
+        dae.scale.x = dae.scale.y = dae.scale.z = 1;
         dae.updateMatrix();
         scene.add(dae);
+        car = dae.get
         var box_geo = new THREE.BoxGeometry(5000, 600, 5000);
         var box_mat = new THREE.MeshBasicMaterial({
             color: 0x343932,
             transparent: true
+
+
+
+
+
         });
         var water = new THREE.Mesh(box_geo, box_mat);
         water.position.set(0, -250, 0);

@@ -1,4 +1,4 @@
-var scene, camera, renderer, raycaster,
+var scene, camera, renderer, raycaster, light, dirLight,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
@@ -12,31 +12,29 @@ const init = (resolve) => {
     if (!Detector.webgl) Detector.addGetWebGLMessage();
     //set up a scene
     scene = new THREE.Scene();
+    scene.fog = new THREE.Fog(0x050505, 0.01, 20)
     //add a camera
     camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
     //render the scene - start renderer and set it's size
     renderer = new THREE.WebGLRenderer({
-        antialias: true
+        antialias: true,
+        alpha: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x1c456d, 1);
+    renderer.setClearColor(0xffffff, 0);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     //add to webpage
     document.body.appendChild(renderer.domElement);
-
-    /*var light = new THREE.AmbientLight(0xffffff, 0.5);
-    light.position.set(20, 80, 50).normalize();
-    light.target.position.set(0, 0, 0);
-    scene.add(light);*/
-
+    light = new THREE.AmbientLight(0xffffff, .5);
+    dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    scene.add(dirLight);
+    scene.add(light);
     group = new THREE.Group();
-
     cloud = textureLoader.load("cloud.png");
     material = new THREE.SpriteMaterial({
         map: cloud,
         color: 0xffffff,
-        fog: true
     });
 
     for (i = 0; i < 100; i++) {
@@ -65,23 +63,21 @@ const init = (resolve) => {
         dae.scale.x = dae.scale.y = dae.scale.z = 1;
         dae.updateMatrix();
         scene.add(dae);
-        car = dae.get
         var box_geo = new THREE.BoxGeometry(5000, 600, 5000);
         var box_mat = new THREE.MeshBasicMaterial({
             color: 0x343932,
             transparent: true
 
-
-
-
-
         });
-        var water = new THREE.Mesh(box_geo, box_mat);
-        water.position.set(0, -250, 0);
+
+
+        var car = new THREE.Mesh(box_geo, box_mat);
+        car.position.set(0, -250, 0);
         box_mat.opacity = .7;
-        scene.add(water);
+        scene.add(car);
         resolve('resolved');
         render();
+
     });
     //position camera
     camera.position.set(10, 5, 10);
@@ -108,6 +104,7 @@ document.onmousedown = e => {
 }
 
 const render = () => {
+    dirLight.position.set(camera.position.x, camera.position.y, camera.position.z);
     TWEEN.update();
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;

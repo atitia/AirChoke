@@ -140,8 +140,10 @@ const changeCamera = () => {
         z: 5
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    let rot1 = new TWEEN.Tween(camera.rotation).to({
-        y: .5,
+    let rot6 = new TWEEN.Tween(camera.rotation).to({
+        x: 12,
+        y: 2,
+        z: 5
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot2 = new TWEEN.Tween(camera.rotation).to({
@@ -160,7 +162,9 @@ const changeCamera = () => {
         y: -1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : 0;
+
+
+    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : slider.value == 6 ? (pos6.start(), switchTo('texts', 'text6')) : 0;
 }
 //dynamic functions
 const switchTo = (off, on) => {
@@ -173,7 +177,7 @@ const switchTo = (off, on) => {
     let target = document.getElementsByClassName(on)[0];
     target.style.display = 'block';
     target.style.opacity = 0;
-    target.style.transition = 'opacity .6s ease-out';
+    target.style.transition = 'opacity 10s ease-out';
     setTimeout(() => {
         target.style.opacity = 1;
     }, 100)

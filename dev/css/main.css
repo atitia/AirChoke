@@ -21,6 +21,8 @@ body {
     -webkit-transform-origin: center center;
     transform-origin: center center;
     box-shadow: 50%;
+    border-radius: 5px;
+
 }
 
 .Backtext {
@@ -33,6 +35,8 @@ body {
     border-radius: 2px;
     left: 2.3vw;
     box-shadow: 100%;
+    border-radius: 5px;
+
 }
 
 #slider {
@@ -137,11 +141,12 @@ body {
 .text1 {
     position: fixed;
     width: 400px;
-    height: 400px;
+    height: 360px;
     margin: 200px;
     left: 850px;
     top: 25px;
     box-shadow: 100%;
+    border-radius: 5px;
     padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -161,11 +166,12 @@ body {
 .text2 {
     position: fixed;
     width: 400px;
-    height: 400px;
+    height: 320px;
     margin: 200px;
     left: 850px;
     top: 25px;
     box-shadow: 100%;
+    border-radius: 5px;
     padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -183,11 +189,12 @@ body {
 .text3 {
     position: fixed;
     width: 400px;
-    height: 300px;
+    height: 230px;
     margin: 200px;
     left: 850px;
     top: 25px;
     box-shadow: 100%;
+    border-radius: 5px;
     padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -203,11 +210,12 @@ body {
 .text4 {
     position: fixed;
     width: 400px;
-    height: 300px;
+    height: 270px;
     margin: 200px;
     left: 850px;
     top: 25px;
     box-shadow: 100%;
+    border-radius: 5px;
     padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -223,11 +231,12 @@ body {
 .text5 {
     position: fixed;
     width: 400px;
-    height: 300px;
+    height: 160px;
     margin: 200px;
     left: 850px;
     top: 25px;
     box-shadow: 100%;
+    border-radius: 5px;
     padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -237,21 +246,32 @@ body {
 }
 
 .text5:hover {
-    background: darkturquoise;
+    background: #000000;
 }
 
-/*.text6 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+.text6 {
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    border-radius: 5px;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #333;
+    background: #000000;
 }
 
-.text7 {
+.text6:hover {
+    background: darkturquoise;
+}
+
+
+/*.text7 {
     position: absolute;
     right: 0px;
     top: 50vh;

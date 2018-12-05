@@ -14,25 +14,25 @@ body {
     top: 50vh;
     left: -5vw;
     padding: 100px 50px;
-    background: #292929;
-    border-radius: 2px;
+    background: #040b14;
+    border-radius: 8px;
     -webkit-transform: rotate(90deg) translateX(-50%);
     transform: rotate(90deg) translateX(-50%);
     -webkit-transform-origin: center center;
     transform-origin: center center;
+    box-shadow: 50%;
 }
 
 .Backtext {
     position: absolute;
     top: 435px;
     left: 60px;
-    background: #292929;
+    background: #040b14;
     color: aqua;
     padding: 10px 28px;
     border-radius: 2px;
     left: 2.3vw;
-
-
+    box-shadow: 100%;
 }
 
 #slider {
@@ -48,8 +48,9 @@ body {
     transition: opacity .2s;
 }
 
+
 #panel {
-    font-family: roboto;
+    font-family: Roboto;
     font-size: 1em;
 }
 
@@ -62,13 +63,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: Roboto;
-
 }
 
 .preload {
     width: 100%;
     height: 100%;
-    background: #333;
+    background: #040b14;
     position: fixed;
     top: 0;
     left: 0;
@@ -122,65 +122,113 @@ body {
     animation: anticlockwisespin 2s linear 3;
 }
 
-.texts {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+/*.texts {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+    padding: 50px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    color: white;
-    display: none;
+    display: block;
     background: darkturquoise;
-}
+}*/
 
 .text1 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    -webkit-transition: 5s;
+    transition: 5s;
     color: white;
     display: none;
     background: darkturquoise;
+    transition-duration: .5s;
 }
+
+.text1:hover {
+    background: #000000;
+}
+
 
 .text2 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #333;
+    background: #000000;
+    transition-duration: .5s;
 }
 
+.text2:hover {
+    background: darkturquoise;
+}
+
+
 .text3 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
     display: none;
     background: darkturquoise;
+}
+
+.text3:hover {
+    background: #000000;
 }
 
 .text4 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #333;
+    background: #000000;
+}
+
+.text4:hover {
+    background: darkturquoise;
 }
 
 .text5 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    padding: 20px;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: white;
@@ -188,7 +236,11 @@ body {
     background: darkturquoise;
 }
 
-.text6 {
+.text5:hover {
+    background: darkturquoise;
+}
+
+/*.text6 {
     position: absolute;
     right: 0px;
     top: 50vh;
@@ -230,7 +282,7 @@ body {
     color: white;
     display: none;
     background: darkturquoise;
-}
+}*/
 
 @-webkit-keyframes clockwisespin {
     from {

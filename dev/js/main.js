@@ -127,7 +127,7 @@ const changeCamera = () => {
     let pos3 = new TWEEN.Tween(camera.position).to({
         x: 2,
         y: 3,
-        z: -5
+        z: -10
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos4 = new TWEEN.Tween(camera.position).to({

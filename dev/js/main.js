@@ -78,7 +78,7 @@ const init = (resolve) => {
 
     });
     //position camera
-    camera.position.set(10, 5, 10);
+    camera.position.set(10, 6, 10);
     camera.rotation.y = 0.8;
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -108,7 +108,7 @@ const render = () => {
     var timer = Date.now() * 0.00001;
     renderer.render(scene, camera);
 }
-
+//y is height, z is to zoom 
 const changeCamera = () => {
     let pos1 = new TWEEN.Tween(camera.position).to({
         x: 6,
@@ -117,21 +117,21 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos2 = new TWEEN.Tween(camera.position).to({
-        x: 8,
-        y: .5,
-        z: 2
+        x: -.2,
+        y: .9,
+        z: 10
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos3 = new TWEEN.Tween(camera.position).to({
-        x: 2,
-        y: 3,
-        z: -10
+        x: 13,
+        y: 6,
+        z: 8
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos4 = new TWEEN.Tween(camera.position).to({
-        x: 12,
-        y: 6,
-        z: 3
+        x: 2,
+        y: 3,
+        z: -10
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos5 = new TWEEN.Tween(camera.position).to({
@@ -147,7 +147,7 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot2 = new TWEEN.Tween(camera.rotation).to({
-        y: -1,
+        y: 2,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot3 = new TWEEN.Tween(camera.rotation).to({

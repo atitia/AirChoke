@@ -111,13 +111,13 @@ const render = () => {
 
 const changeCamera = () => {
     let pos1 = new TWEEN.Tween(camera.position).to({
-        x: 2,
-        y: 1,
-        z: 2
+        x: 6,
+        y: 3,
+        z: 4
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos2 = new TWEEN.Tween(camera.position).to({
-        x: 14,
+        x: 8,
         y: .5,
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);

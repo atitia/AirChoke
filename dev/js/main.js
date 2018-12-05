@@ -36,7 +36,6 @@ const init = (resolve) => {
         map: cloud,
         color: 0xffffff,
     });
-
     for (i = 0; i < 100; i++) {
         var x = 300 * Math.random() - 150;
         var y = (10 * Math.random()) + 90;
@@ -49,7 +48,6 @@ const init = (resolve) => {
 
     }
     scene.add(group);
-
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
     loader.load('/assets/Canada.dae', collada => {
@@ -164,7 +162,6 @@ const changeCamera = () => {
 
     slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : 0;
 }
-
 //dynamic functions
 const switchTo = (off, on) => {
     //Hiding all
@@ -175,6 +172,11 @@ const switchTo = (off, on) => {
     //Showing dynamic
     let target = document.getElementsByClassName(on)[0];
     target.style.display = 'block';
+    target.style.opacity = 0;
+    target.style.transition = 'opacity .6s ease-out';
+    setTimeout(() => {
+        target.style.opacity = 1;
+    }, 100)
 }
 
 function initThreeJs() {
@@ -182,7 +184,6 @@ function initThreeJs() {
         init(resolve);
     });
 }
-
 async function deleteLoading() {
     var result = await initThreeJs();
     let preLoad = document.getElementsByClassName('preload')[0];

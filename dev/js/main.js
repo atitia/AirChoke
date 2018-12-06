@@ -64,13 +64,12 @@ const init = (resolve) => {
         var box_mat = new THREE.MeshBasicMaterial({
             color: 0x343932,
             transparent: true
-
         });
         car = dae.getObjectByName("Honda", true);
         var pos = car.position.clone(),
             sprite_geo = new THREE.SphereGeometry(.1, 10, 10);
         sprite = new THREE.Mesh(sprite_geo, material);
-        sprite.position.set(pos.x, pos.y, pos.z);
+        sprite.position.set(6.1, pos.y, pos.z);
         scene.add(sprite);
         resolve('resolved');
         render();
@@ -91,6 +90,12 @@ const init = (resolve) => {
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
 }
+
+window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 const onDocumentMouseMove = event => {
     event.preventDefault();

@@ -67,45 +67,30 @@ const init = (resolve) => {
             transparent: true
 
         });
-
-
-        var car = new THREE.Mesh(box_geo, box_mat);
-        car.position.set(0, -250, 0);
-        box_mat.opacity = .7;
-        scene.add(car);
+        //var car = collada.getObjectByName("car", true);
+        //        var car = new THREE.Mesh(box_geo, box_mat);
+        //        car.position.set(0, -250, 0);
+        //        box_mat.opacity = .7;
+        //        scene.add(car);
         resolve('resolved');
         render();
 
-        var carSmoke = new THREE.ColladaLoader();
-        loader.load()
+        /* var carSmoke = new THREE.ColladaLoader();
+         loader.load()
 
-        timer = setInterval(makeSmoke, 2500);
+         timer = setInterval(makeSmoke, 2500);
 
-        function makeSmoke() {
-            var pos = carSmoke.position.clone();
-            sprite = new THREE.Sprite(material);
-            sprite.position.set(pos.x, pos.y, pos.z);
-            sprite.scale.x = sprite.scale.y = sprite.scale.z = 10;
-        }
+         function makeSmoke() {
+             var pos = carSmoke.position.clone();
+             sprite = new THREE.Sprite(material);
+             sprite.position.set(pos.x, pos.y, pos.z);
+             sprite.scale.x = sprite.scale.y = sprite.scale.z = 10;
+         }
 
-        function render() {
-            requestAnimationFrame(render);
-            car.position.x += 0.5;
-            if (carSmoke.position.x > 500) {
-                car.position.x = -500;
-            }
-
-            console.log(group.children.Length; i++) {
-                var (i = 0; i < group.children.length; i++) {
-                    var obj = group.children[i];
-                    if (obj.position.y < 80) {
-                        obj.position.y += 0.1;
-                        obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
-                        obj.material.rotation += 0.00001 + (i / 50);
-                    }
-                }
-            }
-        }
+         function render() {
+             requestAnimationFrame(render);
+             
+         }*/
     });
     //position camera
     camera.position.set(10, 6, 10);
@@ -136,8 +121,20 @@ const render = () => {
     TWEEN.update();
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
-
     renderer.render(scene, camera);
+    car.position.x += 0.5;
+    if (carSmoke.position.x > 500) {
+        car.position.x = -500;
+    }
+
+    for (let i = 0; i < group.children.Length; i++) {
+        var obj = group.children[i];
+        if (obj.position.y < 80) {
+            obj.position.y += 0.1;
+            obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
+            obj.material.rotation += 0.00001 + (i / 50);
+        }
+    }
 }
 //y is height, z is to zoom 
 const changeCamera = () => {

@@ -1,4 +1,4 @@
-var scene, camera, renderer, raycaster, light, dirLight,
+var scene, camera, renderer, raycaster, light, car, dirLight,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
@@ -67,11 +67,8 @@ const init = (resolve) => {
             transparent: true
 
         });
-        //var car = collada.getObjectByName("car", true);
-        //        var car = new THREE.Mesh(box_geo, box_mat);
-        //        car.position.set(0, -250, 0);
-        //        box_mat.opacity = .7;
-        //        scene.add(car);
+        car = dae.getObjectByName("trucks", true);
+        console.log(car);
         resolve('resolved');
         render();
 
@@ -122,19 +119,19 @@ const render = () => {
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
     renderer.render(scene, camera);
-    car.position.x += 0.5;
-    if (carSmoke.position.x > 500) {
-        car.position.x = -500;
-    }
+    //car.position.x += 0.5;
+    //    if (carSmoke.position.x > 500) {
+    //        car.position.x = -500;
+    //    }
 
-    for (let i = 0; i < group.children.Length; i++) {
-        var obj = group.children[i];
-        if (obj.position.y < 80) {
-            obj.position.y += 0.1;
-            obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
-            obj.material.rotation += 0.00001 + (i / 50);
-        }
-    }
+    //    for (let i = 0; i < group.children.Length; i++) {
+    //        var obj = group.children[i];
+    //        if (obj.position.y < 80) {
+    //            obj.position.y += 0.1;
+    //            obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
+    //            obj.material.rotation += 0.00001 + (i / 50);
+    //        }
+    //    }
 }
 //y is height, z is to zoom 
 const changeCamera = () => {

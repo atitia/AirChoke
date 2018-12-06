@@ -1,4 +1,4 @@
-var scene, camera, renderer, raycaster, light, car, car2, Mining, factory, House, Niagrafalls, dirLight,
+var scene, camera, renderer, raycaster, light, car, car2, Mining, factory, House, Niagrafalls, ship, dirLight,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
@@ -73,6 +73,7 @@ const init = (resolve) => {
         factory = dae.getObjectByName("factory", true);
         House = dae.getObjectByName("House", true);
         Niagrafalls = dae.getObjectByName("Niagrafalls", true);
+        ship = dae.getObjectByName("ship", true);
 
         resolve('resolved');
         render();
@@ -139,30 +140,35 @@ function makeSmoke() {
     var pos4 = factory.position.clone();
     var pos5 = House.position.clone();
     var pos6 = Niagrafalls.position.clone();
+    var pos7 = ship.position.clone();
     sprite = new THREE.Sprite(material);
     sprite2 = new THREE.Sprite(material);
     sprite3 = new THREE.Sprite(material);
     sprite4 = new THREE.Sprite(material);
     sprite5 = new THREE.Sprite(material);
     sprite6 = new THREE.Sprite(material);
+    sprite7 = new THREE.Sprite(material);
     sprite.position.set(pos.x, pos.y, pos.z);
     sprite2.position.set(pos2.x, pos2.y, pos2.z);
     sprite3.position.set(pos3.x, pos3.y, pos3.z);
     sprite4.position.set(pos4.x, pos4.y, pos4.z);
     sprite5.position.set(pos5.x, pos5.y, pos5.z);
     sprite6.position.set(pos6.x, pos6.y, pos6.z);
+    sprite7.position.set(pos7.x, pos7.y, pos7.z);
     sprite.scale.x = sprite.scale.y = sprite.scale.z = 0.1;
     sprite2.scale.x = sprite2.scale.y = sprite2.scale.z = 0.1;
     sprite3.scale.x = sprite3.scale.y = sprite3.scale.z = 0.1;
     sprite4.scale.x = sprite4.scale.y = sprite4.scale.z = 0.1;
     sprite5.scale.x = sprite5.scale.y = sprite5.scale.z = 0.1;
     sprite6.scale.x = sprite6.scale.y = sprite6.scale.z = 0.1;
+    sprite7.scale.x = sprite7.scale.y = sprite7.scale.z = 0.1;
     group.add(sprite);
     group.add(sprite2);
     group.add(sprite3);
     group.add(sprite4);
     group.add(sprite5);
     group.add(sprite6);
+    group.add(sprite7);
 }
 
 const render = () => {
@@ -220,10 +226,17 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos7 = new TWEEN.Tween(camera.position).to({
-        x: 20,
+        x: 28,
         y: 4,
-        z: 12
+        z: 20
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let pos8 = new TWEEN.Tween(camera.position).to({
+        x: 28,
+        y: 100,
+        z: 20
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
 
     let rot2 = new TWEEN.Tween(camera.rotation).to({
         y: -1,
@@ -241,10 +254,15 @@ const changeCamera = () => {
         y: -25,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
+    let rot8 = new TWEEN.Tween(camera.rotation).to({
+        y: 60,
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
 
 
-    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : slider.value == 6 ? (pos6.start(), switchTo('texts', 'text6')) : slider.value == 7 ? (pos7.start(), switchTo('texts', 'text7')) : 0;
+
+
+    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : slider.value == 6 ? (pos6.start(), switchTo('texts', 'text6')) : slider.value == 7 ? (pos7.start(), switchTo('texts', 'text7')) : slider.value == 8 ? (pos8.start(), switchTo('texts', 'text8')) : 0;
 }
 //dynamic functions
 const switchTo = (off, on) => {

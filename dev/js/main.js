@@ -67,8 +67,7 @@ const init = (resolve) => {
             transparent: true
 
         });
-        car = dae.getObjectByName("trucks", true);
-        console.log(car);
+        car = dae.getObjectByName("Honda", true);
         resolve('resolved');
         render();
 
@@ -119,7 +118,7 @@ const render = () => {
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
     renderer.render(scene, camera);
-    //car.position.x += 0.5;
+    var smokePos = car.position.clone();
     //    if (carSmoke.position.x > 500) {
     //        car.position.x = -500;
     //    }

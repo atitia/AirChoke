@@ -1,8 +1,8 @@
-var scene, camera, renderer, raycaster, light, car, dirLight,
+var scene, camera, renderer, raycaster, light, car, car2, dirLight,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
-    tween, object, dae, car, material, timer, cloud, sprite;
+    tween, object, dae, car, material, timer, group, cloud, sprite, sprite2;
 var textureLoader = new THREE.TextureLoader();
 
 var cameraSpeed = .1;
@@ -32,8 +32,10 @@ const init = (resolve) => {
     scene.add(light);
     group = new THREE.Group();
     cloud = textureLoader.load("cloud.png");
-    material = new THREE.MeshBasicMaterial({
+    material = new THREE.SpriteMaterial({
+        map: cloud,
         color: 0xffffff,
+        fog: true
     });
     //    for (i = 0; i < 100; i++) {
     //        var x = 300 * Math.random() - 150;
@@ -66,23 +68,36 @@ const init = (resolve) => {
             transparent: true
         });
         car = dae.getObjectByName("Honda", true);
-        var pos = car.position.clone(),
-            sprite_geo = new THREE.SphereGeometry(.1, 10, 10);
-        sprite = new THREE.Mesh(sprite_geo, material);
-        sprite.position.set(6.1, pos.y, pos.z);
-        scene.add(sprite);
+        car2 = dae.getObjectByName("Toyota", true);
+
         resolve('resolved');
         render();
+        timer = setInterval(makeSmoke, 2500);
 
-        /* var carSmoke = new THREE.ColladaLoader();
-         loader.load()
+        //star field code https://threejs.org/docs/#api/en/materials/PointsMaterial//
 
-         timer = setInterval(makeSmoke, 2500);
+        var starsGeometry = new THREE.Geometry();
 
-         function render() {
-             requestAnimationFrame(render);
-             
-         }*/
+        for (var i = 0; i < 10000; i++) {
+
+            var star = new THREE.Vector3();
+            star.x = THREE.Math.randFloatSpread(2000);
+            star.y = THREE.Math.randFloatSpread(2000);
+            star.z = THREE.Math.randFloatSpread(2000);
+
+            starsGeometry.vertices.push(star);
+
+        }
+
+        var starsMaterial = new THREE.PointsMaterial({
+            color: 0xffffff
+        });
+
+        var starField = new THREE.Points(starsGeometry, starsMaterial);
+
+        scene.add(starField);
+
+
     });
     //position camera
     camera.position.set(8, 2, 4);
@@ -113,7 +128,18 @@ document.onmousedown = e => {
     }
 }
 
-function makeSmoke() {}
+function makeSmoke() {
+    var pos = car.position.clone();
+    var pos2 = car2.position.clone();
+    sprite = new THREE.Sprite(material);
+    sprite2 = new THREE.Sprite(material);
+    sprite.position.set(pos.x, pos.y, pos.z);
+    sprite2.position.set(pos2.x, pos2.y, pos2.z);
+    sprite.scale.x = sprite.scale.y = sprite.scale.z = 0.1;
+    sprite2.scale.x = sprite2.scale.y = sprite2.scale.z = 0.1;
+    group.add(sprite);
+    group.add(sprite2);
+}
 
 const render = () => {
     dirLight.position.set(camera.position.x, camera.position.y, camera.position.z);
@@ -121,19 +147,15 @@ const render = () => {
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
     renderer.render(scene, camera);
-    //var smokePos = car.position.clone();
-    //    if (carSmoke.position.x > 500) {
-    //        car.position.x = -500;
-    //    }
 
-    //    for (let i = 0; i < group.children.Length; i++) {
-    //        var obj = group.children[i];
-    //        if (obj.position.y < 80) {
-    //            obj.position.y += 0.1;
-    //            obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
-    //            obj.material.rotation += 0.00001 + (i / 50);
-    //        }
-    //    }
+
+    for (let i = 0; i < group.children.length; i++) {
+        var obj = group.children[i];
+        if (obj.position.y < 20) {
+            obj.position.y += 0.01;
+            obj.scale.x = obj.scale.y = obj.scale.z += 0.003;
+        }
+    }
 }
 //y is height, z is to zoom 
 const changeCamera = () => {
@@ -175,7 +197,7 @@ const changeCamera = () => {
 
     let pos7 = new TWEEN.Tween(camera.position).to({
         x: 6,
-        y: 100,
+        y: .6,
         z: 4
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 

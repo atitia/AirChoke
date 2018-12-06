@@ -6,7 +6,7 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100%;
-    background: linear-gradient(to bottom, #040b14 0%, #252544 100%);
+    background: linear-gradient(to bottom, #283c55 0%, #44253d 100%);
     overflow: hidden;
 }
 
@@ -48,11 +48,16 @@ body {
     height: 5px;
     background: #2eb294;
     outline: none;
-    -webkit-transition: .2s;
-    -webkit-transition: opacity .2s;
+    border-radius: 2px;
     transition: opacity .2s;
 }
 
+.slider::-webkit-slider-thumb {
+    background: red;
+    appearance: none;
+    width: 100px;
+    height: 100px;
+}
 
 #panel {
     font-family: Roboto;
@@ -154,7 +159,6 @@ body {
     -webkit-transition: 5s;
     transition: 5s;
     color: white;
-    display: none;
     background: darkturquoise;
     transition-duration: .5s;
 }
@@ -179,7 +183,6 @@ body {
     color: white;
     display: none;
     background: #000000;
-    transition-duration: .5s;
 }
 
 .text2:hover {
@@ -253,7 +256,7 @@ body {
 .text6 {
     position: fixed;
     width: 400px;
-    height: 300px;
+    height: 220px;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -271,6 +274,26 @@ body {
     background: darkturquoise;
 }
 
+.text7 {
+    position: fixed;
+    width: 400px;
+    height: 230px;
+    margin: 200px;
+    left: 850px;
+    top: 25px;
+    box-shadow: 100%;
+    border-radius: 5px;
+    padding: 20px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    display: none;
+    background: darkturquoise;
+}
+
+.text7:hover {
+    background: #000000;
+}
 
 /*.text7 {
     position: absolute;

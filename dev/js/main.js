@@ -26,7 +26,7 @@ const init = (resolve) => {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     //add to webpage
     document.body.appendChild(renderer.domElement);
-    light = new THREE.AmbientLight(0xffffff, .5);
+    light = new THREE.AmbientLight(0xffffff, .1);
     dirLight = new THREE.DirectionalLight(0xffffff, 1);
     scene.add(dirLight);
     scene.add(light);
@@ -85,7 +85,7 @@ const init = (resolve) => {
          }*/
     });
     //position camera
-    camera.position.set(10, 6, 10);
+    camera.position.set(8, 2, 4);
     camera.rotation.y = 0.8;
     raycaster = new THREE.Raycaster();
     document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -98,7 +98,6 @@ window.addEventListener("resize", () => {
 });
 
 const onDocumentMouseMove = event => {
-    event.preventDefault();
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }
@@ -168,10 +167,16 @@ const changeCamera = () => {
         z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
-    let rot6 = new TWEEN.Tween(camera.rotation).to({
-        x: 12,
-        y: 2,
-        z: 5
+    let pos6 = new TWEEN.Tween(camera.position).to({
+        x: 45,
+        y: 6,
+        z: 7
+    }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
+
+    let pos7 = new TWEEN.Tween(camera.position).to({
+        x: 6,
+        y: 100,
+        z: 4
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot2 = new TWEEN.Tween(camera.rotation).to({
@@ -192,7 +197,8 @@ const changeCamera = () => {
 
 
 
-    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : slider.value == 6 ? (pos6.start(), switchTo('texts', 'text6')) : 0;
+
+    slider.value == 1 ? (pos1.start(), switchTo('texts', 'text1')) : slider.value == 2 ? (pos2.start(), rot2.start(), switchTo('texts', 'text2')) : slider.value == 3 ? (pos3.start(), switchTo('texts', 'text3')) : slider.value == 4 ? (pos4.start(), switchTo('texts', 'text4')) : slider.value == 5 ? (pos5.start(), switchTo('texts', 'text5')) : slider.value == 6 ? (pos6.start(), switchTo('texts', 'text6')) : slider.value == 7 ? (pos7.start(), switchTo('texts', 'text7')) : 0;
 }
 //dynamic functions
 const switchTo = (off, on) => {

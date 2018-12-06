@@ -32,21 +32,20 @@ const init = (resolve) => {
     scene.add(light);
     group = new THREE.Group();
     cloud = textureLoader.load("cloud.png");
-    material = new THREE.SpriteMaterial({
-        map: cloud,
+    material = new THREE.MeshBasicMaterial({
         color: 0xffffff,
     });
-    for (i = 0; i < 100; i++) {
-        var x = 300 * Math.random() - 150;
-        var y = (10 * Math.random()) + 90;
-        var z = 300 * Math.random() - 150;
-
-        sprite = new THREE.Sprite(material);
-        sprite.position.set(x, y, z);
-        sprite.scale.x = sprite.scale.y = sprite.scale.z = 20;
-        group.add(sprite);
-
-    }
+    //    for (i = 0; i < 100; i++) {
+    //        var x = 300 * Math.random() - 150;
+    //        var y = (10 * Math.random()) + 90;
+    //        var z = 300 * Math.random() - 150;
+    //
+    //        sprite = new THREE.Sprite(material);
+    //        sprite.position.set(x, y, z);
+    //        sprite.scale.x = sprite.scale.y = sprite.scale.z = 20;
+    //        group.add(sprite);
+    //
+    //    }
     scene.add(group);
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
@@ -68,6 +67,11 @@ const init = (resolve) => {
 
         });
         car = dae.getObjectByName("Honda", true);
+        var pos = car.position.clone(),
+            sprite_geo = new THREE.SphereGeometry(.1, 10, 10);
+        sprite = new THREE.Mesh(sprite_geo, material);
+        sprite.position.set(pos.x, pos.y, pos.z);
+        scene.add(sprite);
         resolve('resolved');
         render();
 
@@ -75,13 +79,6 @@ const init = (resolve) => {
          loader.load()
 
          timer = setInterval(makeSmoke, 2500);
-
-         function makeSmoke() {
-             var pos = carSmoke.position.clone();
-             sprite = new THREE.Sprite(material);
-             sprite.position.set(pos.x, pos.y, pos.z);
-             sprite.scale.x = sprite.scale.y = sprite.scale.z = 10;
-         }
 
          function render() {
              requestAnimationFrame(render);
@@ -112,13 +109,15 @@ document.onmousedown = e => {
     }
 }
 
+function makeSmoke() {}
+
 const render = () => {
     dirLight.position.set(camera.position.x, camera.position.y, camera.position.z);
     TWEEN.update();
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
     renderer.render(scene, camera);
-    var smokePos = car.position.clone();
+    //var smokePos = car.position.clone();
     //    if (carSmoke.position.x > 500) {
     //        car.position.x = -500;
     //    }

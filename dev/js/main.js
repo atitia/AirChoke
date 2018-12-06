@@ -1,4 +1,4 @@
-var scene, camera, renderer, raycaster, light, car, car2, dirLight,
+var scene, camera, renderer, raycaster, light, car, car2, Mining, factory, dirLight,
     mouse = new THREE.Vector2(),
     INTERSECTED,
     slider = document.getElementById('slider'),
@@ -69,33 +69,35 @@ const init = (resolve) => {
         });
         car = dae.getObjectByName("Honda", true);
         car2 = dae.getObjectByName("Toyota", true);
+        Mining = dae.getObjectByName("Mining", true);
+        factory = dae.getObjectByName("factory", true);
 
         resolve('resolved');
         render();
         timer = setInterval(makeSmoke, 2500);
 
-        //star field code https://threejs.org/docs/#api/en/materials/PointsMaterial//
+        /*    //star field code https://threejs.org/docs/#api/en/materials/PointsMaterial//
 
-        var starsGeometry = new THREE.Geometry();
+            var starsGeometry = new THREE.Geometry();
 
-        for (var i = 0; i < 10000; i++) {
+            for (var i = 0; i < 10000; i++) {
 
-            var star = new THREE.Vector3();
-            star.x = THREE.Math.randFloatSpread(2000);
-            star.y = THREE.Math.randFloatSpread(2000);
-            star.z = THREE.Math.randFloatSpread(2000);
+                var star = new THREE.Vector3();
+                star.x = THREE.Math.randFloatSpread(2000);
+                star.y = THREE.Math.randFloatSpread(2000);
+                star.z = THREE.Math.randFloatSpread(2000);
 
-            starsGeometry.vertices.push(star);
+                starsGeometry.vertices.push(star);
 
-        }
+            }
 
-        var starsMaterial = new THREE.PointsMaterial({
-            color: 0xffffff
-        });
+            var starsMaterial = new THREE.PointsMaterial({
+                color: 0xffffff
+            });
 
-        var starField = new THREE.Points(starsGeometry, starsMaterial);
+            var starField = new THREE.Points(starsGeometry, starsMaterial);
 
-        scene.add(starField);
+            scene.add(starField);*/
 
 
     });
@@ -131,14 +133,24 @@ document.onmousedown = e => {
 function makeSmoke() {
     var pos = car.position.clone();
     var pos2 = car2.position.clone();
+    var pos3 = Mining.position.clone();
+    var pos4 = factory.position.clone();
     sprite = new THREE.Sprite(material);
     sprite2 = new THREE.Sprite(material);
+    sprite3 = new THREE.Sprite(material);
+    sprite4 = new THREE.Sprite(material);
     sprite.position.set(pos.x, pos.y, pos.z);
     sprite2.position.set(pos2.x, pos2.y, pos2.z);
+    sprite3.position.set(pos3.x, pos3.y, pos3.z);
+    sprite4.position.set(pos4.x, pos4.y, pos4.z);
     sprite.scale.x = sprite.scale.y = sprite.scale.z = 0.1;
     sprite2.scale.x = sprite2.scale.y = sprite2.scale.z = 0.1;
+    sprite3.scale.x = sprite3.scale.y = sprite3.scale.z = 0.1;
+    sprite4.scale.x = sprite4.scale.y = sprite4.scale.z = 0.1;
     group.add(sprite);
     group.add(sprite2);
+    group.add(sprite3);
+    group.add(sprite4);
 }
 
 const render = () => {

@@ -76,6 +76,36 @@ const init = (resolve) => {
         resolve('resolved');
         render();
 
+        var carSmoke = new THREE.ColladaLoader();
+        loader.load()
+
+        timer = setInterval(makeSmoke, 2500);
+
+        function makeSmoke() {
+            var pos = carSmoke.position.clone();
+            sprite = new THREE.Sprite(material);
+            sprite.position.set(pos.x, pos.y, pos.z);
+            sprite.scale.x = sprite.scale.y = sprite.scale.z = 10;
+        }
+
+        function render() {
+            requestAnimationFrame(render);
+            car.position.x += 0.5;
+            if (carSmoke.position.x > 500) {
+                car.position.x = -500;
+            }
+
+            console.log(group.children.Length; i++) {
+                var (i = 0; i < group.children.length; i++) {
+                    var obj = group.children[i];
+                    if (obj.position.y < 80) {
+                        obj.position.y += 0.1;
+                        obj.scale.x = obj.scale.y = obj.scale.z += 0.08;
+                        obj.material.rotation += 0.00001 + (i / 50);
+                    }
+                }
+            }
+        }
     });
     //position camera
     camera.position.set(10, 6, 10);
@@ -106,6 +136,7 @@ const render = () => {
     TWEEN.update();
     requestAnimationFrame(render);
     var timer = Date.now() * 0.00001;
+
     renderer.render(scene, camera);
 }
 //y is height, z is to zoom 
@@ -117,27 +148,27 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos2 = new TWEEN.Tween(camera.position).to({
-        x: -.2,
+        x: 8,
         y: .9,
-        z: 10
+        z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos3 = new TWEEN.Tween(camera.position).to({
-        x: 13,
-        y: 6,
-        z: 8
+        x: .9,
+        y: 4,
+        z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos4 = new TWEEN.Tween(camera.position).to({
-        x: 2,
-        y: 3,
-        z: -10
+        x: 8,
+        y: 4,
+        z: -7
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let pos5 = new TWEEN.Tween(camera.position).to({
-        x: 2,
-        y: 4,
-        z: 5
+        x: -3,
+        y: 1,
+        z: 2
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot6 = new TWEEN.Tween(camera.rotation).to({
@@ -147,7 +178,7 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot2 = new TWEEN.Tween(camera.rotation).to({
-        y: 2,
+        y: -1,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot3 = new TWEEN.Tween(camera.rotation).to({
@@ -155,11 +186,11 @@ const changeCamera = () => {
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot4 = new TWEEN.Tween(camera.rotation).to({
-        y: -1,
+        y: .6,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
     let rot5 = new TWEEN.Tween(camera.rotation).to({
-        y: -1,
+        y: -25,
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 
 

@@ -292,28 +292,6 @@ body {
     background: #000000;
 }
 
-/*.text7 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
-    display: none;
-    background: darkturquoise;
-}
-
-.text8 {
-    position: absolute;
-    right: 0px;
-    top: 50vh;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
-    display: none;
-    background: #333;
-}
-
 .text9 {
     position: absolute;
     right: 0px;
@@ -323,9 +301,9 @@ body {
     color: white;
     display: none;
     background: darkturquoise;
-}*/
+}
 
-@-webkit-keyframes clockwisespin {
+*/ @-webkit-keyframes clockwisespin {
     from {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);

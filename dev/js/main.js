@@ -181,7 +181,7 @@ const render = () => {
 
     for (let i = 0; i < group.children.length; i++) {
         var obj = group.children[i];
-        if (obj.position.y < 20) {
+        if (obj.position.y < 15) {
             obj.position.y += 0.01;
             obj.scale.x = obj.scale.y = obj.scale.z += 0.003;
         }

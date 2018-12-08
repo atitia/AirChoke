@@ -293,9 +293,9 @@ body {
 
 .text8 {
     position: fixed;
-    width: 1100px;
-    height: 150px;
-    margin: 250px;
+    width: 650px;
+    height: 620px;
+    margin: 310px;
     left: 600px;
     top: 25px;
     box-shadow: 100%;
@@ -310,6 +310,15 @@ body {
 
 .text8:hover {
     background: darkturquoise;
+}
+
+.solutions {
+    font-size: 1em;
+}
+
+.change {
+    font-size: 1.2em;
+    text-align: center;
 }
 
 */ @-webkit-keyframes clockwisespin {

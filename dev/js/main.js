@@ -12,7 +12,7 @@ const init = (resolve) => {
     if (!Detector.webgl) Detector.addGetWebGLMessage();
     //set up a scene
     scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x050505, 0.01, 20)
+    scene.fog = new THREE.Fog(0x534f4f, 0.09, 20)
     //add a camera
     camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
     //render the scene - start renderer and set it's size
@@ -239,7 +239,7 @@ const changeCamera = () => {
 
     let pos8 = new TWEEN.Tween(camera.position).to({
         x: 28,
-        y: 100,
+        y: 400,
         z: 20
     }, 4000).easing(TWEEN.Easing.Quadratic.InOut);
 

@@ -157,8 +157,8 @@ body {
 
 .text1 {
     position: absolute;
-    width: 400px;
-    height: 360px;
+    width: 30%;
+    height: 55%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -182,8 +182,8 @@ body {
 
 .text2 {
     position: absolute;
-    width: 400px;
-    height: 320px;
+    width: 30%;
+    height: 50%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -204,8 +204,8 @@ body {
 
 .text3 {
     position: absolute;
-    width: 400px;
-    height: 230px;
+    width: 30%;
+    height: 35%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -225,8 +225,8 @@ body {
 
 .text4 {
     position: absolute;
-    width: 400px;
-    height: 270px;
+    width: 30%;
+    height: 45%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -246,8 +246,8 @@ body {
 
 .text5 {
     position: absolute;
-    width: 400px;
-    height: 160px;
+    width: 30%;
+    height: 25%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -267,8 +267,8 @@ body {
 
 .text6 {
     position: absolute;
-    width: 400px;
-    height: 220px;
+    width: 30%;
+    height: 35%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -288,8 +288,8 @@ body {
 
 .text7 {
     position: absolute;
-    width: 400px;
-    height: 230px;
+    width: 30%;
+    height: 35%;
     margin: 200px;
     left: 850px;
     top: 25px;
@@ -309,8 +309,8 @@ body {
 
 .text8 {
     position: absolute;
-    width: 650px;
-    height: 620px;
+    width: 50%;
+    height: 95%;
     margin: 310px;
     left: 600px;
     top: 25px;

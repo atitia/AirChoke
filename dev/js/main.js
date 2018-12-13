@@ -51,7 +51,7 @@ const init = (resolve) => {
     scene.add(group);
     var loader = new THREE.ColladaLoader();
     loader.options.convertUpAxis = true;
-    loader.load('/assets/Canada.dae', collada => {
+    loader.load('assets/Canada.dae', collada => {
         dae = collada.scene;
         dae.traverse(function (child) {
             if (child instanceof THREE.Mesh) {

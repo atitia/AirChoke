@@ -30,7 +30,7 @@ body {
 
 .Backtext {
     position: fixed;
-    top: 447px;
+    top: 67vh;
     background: #040b14;
     color: aqua;
     padding: 10px 28px;
@@ -48,7 +48,7 @@ body {
     appearance: none;
     width: 300px;
     height: 5px;
-    background: rgb(115, 21, 21);
+    background: darkturquoise;
     outline: none;
     border-radius: 2px;
     transition: opacity .2s;
@@ -56,7 +56,7 @@ body {
 }
 
 #slider:hover {
-    background: darkturquoise;
+    background: rgb(115, 21, 21);
 }
 
 .slider::-webkit-slider-thumb {
@@ -86,6 +86,14 @@ body {
     z-index: 1;
 }
 
+#logo {
+    width: 400px;
+    height: 360px;
+    margin: 5px;
+    z-index: 1;
+
+}
+
 .Name {
     width: 300px;
     height: 10px;
@@ -97,12 +105,14 @@ body {
 }
 
 .loader-frame {
+    position: absolute;
+    bottom: 50px;
     width: 70px;
     height: 70px;
     margin: auto;
-    position: relative;
+    left: 50vw;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-
 }
 
 .loader {
@@ -146,7 +156,7 @@ body {
 }*/
 
 .text1 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 360px;
     margin: 200px;
@@ -171,7 +181,7 @@ body {
 
 
 .text2 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 320px;
     margin: 200px;
@@ -184,7 +194,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #000000;
+    background: darkturquoise;
 }
 
 .text2:hover {
@@ -193,7 +203,7 @@ body {
 
 
 .text3 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 230px;
     margin: 200px;
@@ -214,7 +224,7 @@ body {
 }
 
 .text4 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 270px;
     margin: 200px;
@@ -227,7 +237,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #000000;
+    background: darkturquoise;
 }
 
 .text4:hover {
@@ -235,7 +245,7 @@ body {
 }
 
 .text5 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 160px;
     margin: 200px;
@@ -256,7 +266,7 @@ body {
 }
 
 .text6 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 220px;
     margin: 200px;
@@ -269,7 +279,7 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     display: none;
-    background: #000000;
+    background: darkturquoise;
 }
 
 .text6:hover {
@@ -277,7 +287,7 @@ body {
 }
 
 .text7 {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 230px;
     margin: 200px;
@@ -298,7 +308,7 @@ body {
 }
 
 .text8 {
-    position: fixed;
+    position: absolute;
     width: 650px;
     height: 620px;
     margin: 310px;

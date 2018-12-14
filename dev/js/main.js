@@ -31,7 +31,7 @@ const init = (resolve) => {
     scene.add(dirLight);
     scene.add(light);
     group = new THREE.Group();
-    cloud = textureLoader.load("cloud.png");
+    cloud = textureLoader.load("assets/img/cloud.png");
     material = new THREE.SpriteMaterial({
         map: cloud,
         color: 0xffffff,

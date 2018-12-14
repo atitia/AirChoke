@@ -15,12 +15,10 @@ body {
 #Back {
     position: absolute;
     top: 50vh;
-    left: -5vw;
+    left: 0vw;
     padding: 100px 50px;
     background: #040b14;
-    -webkit-transform: rotate(90deg) translateX(-50%);
     transform: rotate(90deg) translateX(-50%);
-    -webkit-transform-origin: center center;
     transform-origin: center center;
     box-shadow: 50%;
     border-style: solid;
@@ -29,12 +27,13 @@ body {
 
 
 .Backtext {
-    position: fixed;
+    position: absolute;
     top: 67vh;
+    left: 205px;
     background: #040b14;
     color: aqua;
     padding: 10px 28px;
-    left: 2.3vw;
+    transform: translateX(-50%);
     box-shadow: 100%;
     border-radius: 5px;
     text-align: center;
@@ -155,177 +154,58 @@ body {
     background: darkturquoise;
 }*/
 
-.text1 {
+.texts {
     position: absolute;
-    width: 30%;
-    height: 55%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
+    width: 30vw;
+    height: auto;
+    right: 50px;
+    top: 50vh;
     opacity: 0;
     box-shadow: 100%;
     border-radius: 5px;
     padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transition: 5s;
+    transform: translate(0, -50%);
     transition: 5s;
     color: white;
     background: darkturquoise;
     transition-duration: .5s;
 }
 
-.text1:hover {
-    background: rgb(115, 21, 21);
-}
-
+.text1 {}
 
 .text2 {
-    position: absolute;
-    width: 30%;
-    height: 50%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
 }
 
-.text2:hover {
+.texts:hover {
     background: rgb(115, 21, 21);
 }
 
 
 .text3 {
-    position: absolute;
-    width: 30%;
-    height: 35%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
-}
-
-.text3:hover {
-    background: rgb(115, 21, 21);
 }
 
 .text4 {
-    position: absolute;
-    width: 30%;
-    height: 45%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
 }
 
-.text4:hover {
-    background: rgb(115, 21, 21);
-}
 
 .text5 {
-    position: absolute;
-    width: 30%;
-    height: 25%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
 }
 
-.text5:hover {
-    background: rgb(115, 21, 21);
-}
 
 .text6 {
-    position: absolute;
-    width: 30%;
-    height: 35%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
-}
-
-.text6:hover {
-    background: rgb(115, 21, 21);
 }
 
 .text7 {
-    position: absolute;
-    width: 30%;
-    height: 35%;
-    margin: 200px;
-    left: 850px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
-}
-
-.text7:hover {
-    background: rgb(115, 21, 21);
 }
 
 .text8 {
-    position: absolute;
-    width: 50%;
-    height: 95%;
-    margin: 310px;
-    left: 600px;
-    top: 25px;
-    box-shadow: 100%;
-    border-radius: 5px;
-    padding: 20px;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    color: white;
     display: none;
-    background: darkturquoise;
-}
-
-.text8:hover {
-    background: rgb(115, 21, 21);
 }
 
 .solutions {
